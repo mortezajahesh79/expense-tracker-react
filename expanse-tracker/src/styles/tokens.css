@@ -1,0 +1,29 @@
+:root {
+  /* Primary */
+  --primary-light: #2b80ed;
+  --primary-dark: #0869a3;
+  --primary-brand: #0f34f3;
+
+  /* Neutrals */
+  --neutral-dark-1: #1f2933;
+  --neutral-dark-2: #323f4b;
+  --neutral-gray-1: #6b7580;
+  --neutral-gray-2: #8fa8b1;
+  --neutral-gray-3: #b0b8bf;
+  --neutral-soft-1: #dcdde3;
+  --neutral-soft-2: #ebedf0;
+  --neutral-soft-3: #f9f9fa;
+  --white: #ffffff;
+
+  /* System */
+  --danger: #ef4e4e;
+  --warning: #fbbe4a;
+  --success: #3ebd93;
+  --info: #38abff;
+
+  /* Radius & Shadow */
+  --radius-lg: 16px;
+  --radius-md: 12px;
+
+  --shadow-sm: 0 6px 18px rgba(31, 41, 51, 0.08);
+}
