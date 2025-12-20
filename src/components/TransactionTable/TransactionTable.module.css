@@ -1,0 +1,223 @@
+.wrapper {
+  width: min(768px, 100%);
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 36px 0px;
+  gap: 0px;
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  margin: 0 auto;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  font-style: semibold;
+  font-weight: 600;
+  color: #242d35;
+}
+
+.card {
+  border-radius: var(--radius-lg);
+  padding: 24px var(--table-padding-x) 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  direction: rtl;
+  text-align: right;
+}
+
+.th {
+  text-align: right;
+  font-size: 16px;
+  font-weight: 500;
+  color: #6b7580;
+  line-height: 20px;
+  padding: 16px 16px;
+  border-bottom: 1px solid #a0ccf8;
+}
+
+.tdDate,
+.tdAmount,
+.tdTitle {
+  padding: 14px 16px;
+  font-size: 16px;
+  color: black;
+}
+
+.tdDate {
+  white-space: nowrap;
+  font-size: 16px;
+  font-style: medium;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.tdAmount {
+  white-space: nowrap;
+  font-size: 16px;
+  font-style: medium;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.tdTitle {
+  width: auto;
+}
+
+.income {
+  color: var(--success);
+  font-size: 16px;
+  font-style: medium;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.expense {
+  color: var(--danger);
+  font-size: 16px;
+  font-style: medium;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+.muted {
+  color: var(--neutral-gray-2);
+}
+
+/* تاریخ */
+.thDate,
+.tdDate {
+  width: clamp(110px, 22vw, 160px);
+}
+
+/* درآمد */
+.thIncome,
+.tdIncome {
+  width: clamp(110px, 22vw, 160px);
+}
+
+/* هزینه */
+.thExpense,
+.tdExpense {
+  width: clamp(110px, 22vw, 160px);
+}
+
+/* شرح */
+.thTitle,
+.tdTitle {
+  width: clamp(160px, 36vw, 240px);
+}
+
+.income,
+.expense {
+  direction: ltr;
+  unicode-bidi: plaintext;
+  display: inline-flex;
+  gap: 2px;
+  align-items: baseline;
+}
+
+.desktopOnly {
+  display: table;
+}
+
+.mobileOnly {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: block;
+  }
+
+  .wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 24px 0;
+    border-radius: 16px;
+    box-shadow: none;
+    background: white;
+  }
+
+  .title {
+    padding: 36px 16px 0px 16px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .card {
+    padding: 0 16px;
+  }
+
+  .mobileList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .mobileRow {
+    background: #fafafb;
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobileTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0px;
+  }
+
+  .mobileDate {
+    font-size: 16px;
+    line-height: 20px;
+    color: #242d35;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+
+  .mobileTitle {
+    font-size: 16px;
+    color: #242d35;
+    font-weight: 400;
+    text-align: right;
+    flex: 1;
+    margin-right: 0px;
+  }
+
+  .mobileAmountLine {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: right;
+    direction: ltr;
+  }
+
+  .income {
+    color: #00b894;
+  }
+
+  .expense {
+    color: #e74c3c;
+  }
+
+  .income::before {
+    content: " +";
+    margin-left: 0px;
+  }
+
+  .expense::before {
+    content: "- ";
+  }
+}

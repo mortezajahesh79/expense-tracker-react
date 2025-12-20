@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+@media (max-width: 480px) {
+  #root {
+    padding: 16px; /* ✅ دقیقاً همونی که می‌خوای */
+  }
+}
