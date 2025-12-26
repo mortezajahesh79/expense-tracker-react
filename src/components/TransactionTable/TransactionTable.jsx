@@ -1,12 +1,24 @@
 import styles from "./TransactionTable.module.css";
-import { transactionsMock } from "../../data/transactions.mock";
 import { formatCurrencyFa } from "../../utils/formatCurrency";
 import { formatDateFaShort } from "../../utils/formatDate";
 
-export default function TransactionTable() {
+import DeleteIcon from "../../assets/icons/light/Delete.svg";
+
+export default function TransactionTable({
+  transactions,
+  onAddClick,
+  onDelete,
+}) {
   return (
     <section className={styles.wrapper}>
-      <h2 className={styles.title}>تراکنش‌ها</h2>
+      <div className={styles.header}>
+        <h2 className={styles.title}>تراکنش‌ها</h2>
+
+        <button className={styles.addBtn} type="button" onClick={onAddClick}>
+          <span className={styles.addIcon}>+</span>
+          افزودن تراکنش
+        </button>
+      </div>
 
       <div className={styles.card}>
         {/* Desktop Table */}
@@ -21,11 +33,12 @@ export default function TransactionTable() {
                 هزینه (تومان)
               </th>
               <th className={`${styles.th} ${styles.thTitle}`}>شرح</th>
+              <th className={`${styles.th} ${styles.thActions}`}></th>
             </tr>
           </thead>
 
           <tbody>
-            {transactionsMock.map((t) => {
+            {transactions.map((t) => {
               const isIncome = t.type === "income";
               const isExpense = t.type === "expense";
 
@@ -33,25 +46,37 @@ export default function TransactionTable() {
                 <tr key={t.id} className={styles.tr}>
                   <td className={styles.tdDate}>{formatDateFaShort(t.date)}</td>
 
-                  {/* Income cell: if not income show nothing */}
                   <td className={`${styles.tdAmount} ${styles.tdIncome}`}>
                     {isIncome ? (
                       <span className={styles.income}>
-                        +{formatCurrencyFa(t.amount)}
+                        + {formatCurrencyFa(t.amount)}
                       </span>
                     ) : null}
                   </td>
 
-                  {/* Expense cell: if not expense show nothing */}
                   <td className={`${styles.tdAmount} ${styles.tdExpense}`}>
                     {isExpense ? (
                       <span className={styles.expense}>
-                        -{formatCurrencyFa(t.amount)}
+                        - {formatCurrencyFa(t.amount)}
                       </span>
                     ) : null}
                   </td>
 
                   <td className={styles.tdTitle}>{t.title}</td>
+
+                  <td className={styles.tdActions}>
+                    <button
+                      className={styles.deleteBtn}
+                      type="button"
+                      onClick={() => onDelete(t.id)}
+                    >
+                      <img
+                        src={DeleteIcon}
+                        alt="delete"
+                        className={styles.deleteIcon}
+                      />
+                    </button>
+                  </td>
                 </tr>
               );
             })}
@@ -59,26 +84,43 @@ export default function TransactionTable() {
         </table>
 
         {/* Mobile List */}
-        {/* Mobile List */}
         <div className={`${styles.mobileOnly} ${styles.mobileList}`}>
-          {transactionsMock.map((t) => {
+          {transactions.map((t) => {
             const isIncome = t.type === "income";
+            const sign = isIncome ? "+" : "-";
 
             return (
               <div key={t.id} className={styles.mobileRow}>
-                {/* 👇👇 این بخش جدید و دقیقاً همونی که گفتی 👇👇 */}
+                {/* top row: date + amount + delete */}
                 <div className={styles.mobileTop}>
                   <div className={styles.mobileDate}>
                     {formatDateFaShort(t.date)}
                   </div>
-                  <div className={styles.mobileAmountLine}>
-                    <span className={isIncome ? styles.income : styles.expense}>
-                      {formatCurrencyFa(t.amount)}
-                    </span>
+
+                  <div className={styles.mobileRight}>
+                    <div className={styles.mobileAmountLine}>
+                      <span
+                        className={isIncome ? styles.income : styles.expense}
+                      >
+                        {sign} {formatCurrencyFa(t.amount)}{" "}
+                        <span className={styles.currency}>تومان</span>
+                      </span>
+                    </div>
+                    <div className={styles.mobilebottom}>
+                      <div className={styles.mobileTitle}>{t.title}</div>
+                      <button
+                        type="button"
+                        className={styles.deleteBtn}
+                        onClick={() => onDelete(t.id)}
+                        aria-label="حذف تراکنش"
+                        title="حذف"
+                      >
+                        <img src={DeleteIcon} alt="" />
+                      </button>
+                    </div>
                   </div>
                 </div>
-
-                <div className={styles.mobileTitle}>{t.title}</div>
+                {/* bottom row: title */}
               </div>
             );
           })}

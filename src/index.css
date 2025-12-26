@@ -1,41 +1,39 @@
 :root {
   /* Primary */
-  --primary-light: #2b80ed;
-  --primary-dark: #0869a3;
-  --primary-brand: #0f34f3;
+  --primary-light: #a0ccf8;
+  --primary-dark: #57a4f2;
+  --primary-brand: #0e33f3;
 
   /* Neutrals */
   --neutral-dark-1: #1f2933;
-  --neutral-dark-2: #323f4b;
-  --neutral-gray-1: #6b7580;
-  --neutral-gray-2: #8fa8b1;
+  --neutral-dark-2: #242d35;
+  --neutral-gray-1: #6b7d87;
+  --neutral-gray-2: #9ba1a8;
   --neutral-gray-3: #b0b8bf;
-  --neutral-soft-1: #dcdde3;
-  --neutral-soft-2: #ebedf0;
-  --neutral-soft-3: #f9f9fa;
+  --neutral-soft-1: #dcdfe3;
+  --neutral-soft-2: #ebeef0;
+  --neutral-soft-3: #fafafb;
   --white: #ffffff;
 
   /* System */
   --danger: #ef4e4e;
   --warning: #fbbe4a;
   --success: #3ebd93;
-  --info: #38abff;
-
-  /* Radius & Shadow */
-  --radius-lg: 16px;
-  --radius-md: 12px;
-
-  --shadow-sm: 0 6px 18px rgba(31, 41, 51, 0.08);
+  --info: #37abff;
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  --table-padding-x: 24px;
 }
 
 html,
 body {
   height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -45,8 +43,6 @@ body {
     system-ui,
     -apple-system,
     "Segoe UI",
-    Roboto,
-    Arial,
     sans-serif;
   direction: rtl;
   background: var(--neutral-soft-2);
@@ -59,7 +55,79 @@ a {
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0;
+}
+
+/* Thin – 100 */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-Thin.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light – 300 */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Regular – 400 */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium – 500 */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* SemiBold – 600 */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold – 700 */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ExtraBold – 800 */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Black – 900 */
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/Vazirmatn-Black.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
 }

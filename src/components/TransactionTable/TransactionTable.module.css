@@ -1,32 +1,84 @@
 .wrapper {
-  width: min(768px, 100%);
-  background: var(--white);
+  max-width: 816px;
+  height: 820px;
+  background: white;
   display: flex;
   flex-direction: column;
-  padding: 36px 0px;
-  gap: 0px;
+  padding: 36px 24px;
+  gap: 24px;
   border-radius: 16px;
-  box-shadow: var(--shadow-sm);
   margin: 0 auto;
 }
 
+.header {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .title {
-  margin: 0;
   font-size: 20px;
-  font-style: semibold;
   font-weight: 600;
   color: #242d35;
 }
+/* دکمه اصلی */
+.addBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 4px 24px;
+  border-radius: 10px;
+  background: #0e33f3; /* آبی شبیه عکس */
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 400;
+  font-family: vazirmatn, sans-serif;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
 
-.card {
+/* آیکون + داخل مربع */
+.addIcon {
+  width: 22px;
+  height: 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid white;
+  border-radius: 6px;
+
+  font-size: 16px;
+  line-height: 1;
+}
+.deleteIcon {
+  width: 24px;
+  height: 24px;
+  fill: #6b7580;
+}
+.deleteBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .card {
   border-radius: var(--radius-lg);
   padding: 24px var(--table-padding-x) 10px;
-}
+} */
 
 .table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: auto;
   direction: rtl;
   text-align: right;
 }
@@ -189,12 +241,13 @@
   }
 
   .mobileTitle {
-    font-size: 16px;
-    color: #242d35;
-    font-weight: 400;
-    text-align: right;
     flex: 1;
-    margin-right: 0px;
+    text-align: right;
+    font-size: 15px;
+    line-height: 1.4;
+    color: #374151;
+    order: 1; /* مطمئن می‌شیم اول باشه (سمت راست) */
+    margin: 0;
   }
 
   .mobileAmountLine {
@@ -213,11 +266,41 @@
   }
 
   .income::before {
-    content: " +";
+    content: "تومان ";
     margin-left: 0px;
   }
 
   .expense::before {
-    content: "- ";
+    content: "تومان ";
+  }
+  .deleteBtn {
+    order: 2; /* دوم باشه → سمت چپ */
+    flex-shrink: 0;
+    padding: 4px;
+    margin-left: 0; /* فاصله از لبه چپ */
+    margin-right: 0;
+  }
+  .deleteBtn img,
+  .deleteIcon {
+    width: 24px;
+    height: 24px;
+  }
+  .mobilebottom {
+    display: flex;
+    justify-content: space-between; /* شرح راست ←→ حذف چپ */
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+  }
+  .mobileRight {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* همه چیز سمت راست تراز بشه */
+    width: 100%;
+    gap: 8px;
+  }
+  .mobileAmountLine {
+    font-size: 15px;
+    margin-bottom: 4px;
   }
 }
