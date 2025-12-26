@@ -1,0 +1,159 @@
+.dateInputWrapper {
+  position: relative;
+  max-width: 472px;
+}
+.formTitle {
+  margin-top: 0;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: start;
+}
+.calendarIcon {
+  width: 24px;
+  height: 24px;
+  color: #a0ccf8;
+}
+.dateInputWrapper input {
+  width: 312px;
+  height: 42px;
+  padding: 10px 32px 10px 12px; /* جا برای آیکون سمت چپ/راست */
+  font-family: inherit;
+  border: 1px solid #dcdfe3;
+  border-radius: 6px;
+  direction: ltr !important;
+  text-align: right; /* اعداد راست‌چین دیده بشن */
+  caret-color: #3b82f6;
+}
+.field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendarIcon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+/* بقیه استایل‌های فرم مثل قبل */
+.amountWrapper {
+  position: relative;
+}
+
+.amountInput {
+  width: 312px;
+  height: 42px;
+  padding: 10px 32px 10px 12px; /* جا برای آیکون سمت چپ/راست */
+  font-family: inherit;
+  border: 1px solid #dcdfe3;
+  border-radius: 6px;
+  direction: ltr !important;
+  text-align: right;
+}
+.amountInput::-webkit-inner-spin-button,
+.amountInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.amountInput[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.typeRow {
+  display: flex;
+  gap: 48px;
+  justify-content: space-evenly;
+}
+
+.typeItem {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 8px;
+  padding-left: 93px;
+}
+
+.typeItem input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  border: 1px solid #d9d9d9;
+  border-radius: 50%;
+  margin: 0;
+  cursor: pointer;
+}
+
+.typeItem input[type="radio"]:checked {
+  border-color: currentColor;
+  color: #0e33f3;
+}
+.explainWrapper {
+  position: relative;
+}
+
+/* استایل اصلی ورودی شرح - مشابه amount */
+.explainInputInput {
+  width: 312px;
+  height: 42px;
+  padding: 10px 32px 10px 12px; /* دقیقاً همان padding ورودی مبلغ */
+  font-family: inherit;
+  font-size: 16px;
+  border: 1px solid #dcdfe3;
+  border-radius: 6px;
+  direction: ltr !important;
+  text-align: right;
+  background: white;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+/* اگر بعداً خواستی چیزی مثل واحد یا آیکون سمت چپ اضافه کنی */
+/* .explainUnit {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 14px;
+  pointer-events: none;
+} */
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+  gap: 8px;
+}
+.submitBtn {
+  width: 58px;
+  height: 32px;
+  color: white;
+  opacity: 1;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 16px;
+  border-width: Components/Button/Global/lineWidth;
+  background-color: #0e33f3;
+  font-family: inherit;
+}
+.cancelBtn {
+  font-family: inherit;
+  width: 72px;
+  height: 32px;
+  opacity: 1;
+  border-radius: 6px;
+  padding: 5px 16px;
+  border-width: Components/Button/Global/lineWidth;
+  background-color: white;
+  border: 1px solid #dcdfe3;
+}
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* فاصله ۲۰ پیکسل بین همه فیلدها */
+  margin-top: 16px; /* اختیاری: فاصله از عنوان فرم */
+}
